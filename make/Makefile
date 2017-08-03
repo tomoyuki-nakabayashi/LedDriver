@@ -37,10 +37,10 @@ TEST_SRCS = $(TEST_DIR)/LedDriverTest.cpp
 TEST_TARGET = $(BIN_DIR)/LedDriver
 TEST_OBJS  = $(addprefix $(OBJ_DIR)/, $(notdir $(TEST_SRCS:.cpp=.o)))
 LIBS += -L$(LIB_DIR)
-LIBS += -lleddriver
+LIBS += -lleddriver -lgcov
 
 CPPFLAGS += -isystem $(GTEST_DIR)/include
-CXXFLAGS = -g -Wall -Wextra -pthread
+CXXFLAGS = -g -Wall -Wextra -pthread -fprofile-arcs -ftest-coverage
 
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
