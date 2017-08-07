@@ -7,16 +7,4 @@ job_shell:
   artifacts:
     paths:
       - results/
-
-pages:
-  stage: deploy
-  dependencies:
-    - job_shell
-  script:
-    - mv results/ public/
-  variables:
-    GIT_STRATEGY: none
-  artifacts:
-    paths:
-      - public/
     expire_in: 1 days
